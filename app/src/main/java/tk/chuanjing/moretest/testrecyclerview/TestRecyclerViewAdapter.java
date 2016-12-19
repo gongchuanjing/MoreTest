@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,7 +25,26 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = View.inflate(parent.getContext(), R.layout.item_recyclerview_linearlayout_manager, null);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+
+        // 设置整个view条目点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestBean testBean = testList.get(holder.getAdapterPosition());
+                Toast.makeText(view.getContext(), "点击了" + testBean.name, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // 设置每个条目中图片的点击事件
+        holder.iv_ic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestBean testBean = testList.get(holder.getAdapterPosition());
+                Toast.makeText(view.getContext(), "点击了" + testBean.name + "的图片", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return holder;
     }
 
@@ -42,14 +62,16 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
+        View itemView;
         ImageView iv_ic;
         TextView tv_name;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+        public ViewHolder(View view) {
+            super(view);
 
-            iv_ic = (ImageView)itemView.findViewById(R.id.iv_ic);
-            tv_name = (TextView)itemView.findViewById(R.id.tv_name);
+            itemView = view;
+            iv_ic = (ImageView)view.findViewById(R.id.iv_ic);
+            tv_name = (TextView)view.findViewById(R.id.tv_name);
         }
     }
 }

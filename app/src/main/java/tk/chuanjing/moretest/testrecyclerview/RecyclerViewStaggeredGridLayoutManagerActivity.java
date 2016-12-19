@@ -1,9 +1,7 @@
 package tk.chuanjing.moretest.testrecyclerview;
 
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
@@ -12,8 +10,6 @@ import java.util.List;
 import java.util.Random;
 
 import tk.chuanjing.moretest.R;
-
-import static android.R.attr.name;
 
 public class RecyclerViewStaggeredGridLayoutManagerActivity extends AppCompatActivity {
 
