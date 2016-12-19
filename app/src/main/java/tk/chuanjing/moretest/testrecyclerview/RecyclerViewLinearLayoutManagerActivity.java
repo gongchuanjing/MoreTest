@@ -1,28 +1,30 @@
-package tk.chuanjing.moretest;
+package tk.chuanjing.moretest.testrecyclerview;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerviewActivity extends AppCompatActivity {
+import tk.chuanjing.moretest.R;
+
+public class RecyclerViewLinearLayoutManagerActivity extends AppCompatActivity {
 
     private List<TestBean> testList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclerview);
+        setContentView(R.layout.activity_recycler_view_linear_layout_manager);
 
         initDate();
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new TestRecyclerViewAdapter(testList));
     }
 

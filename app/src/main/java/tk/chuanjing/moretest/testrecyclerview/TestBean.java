@@ -1,4 +1,4 @@
-package tk.chuanjing.moretest;
+package tk.chuanjing.moretest.testrecyclerview;
 
 /**
  * Created by ChuanJing on 2016/12/15.

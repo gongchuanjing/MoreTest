@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import tk.chuanjing.moretest.testrecyclerview.RecyclerviewActivity;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,6 +45,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        initMyView();
+    }
+
+    private void initMyView() {
         // 点击进入recyclerview界面
         Button btn_rv = (Button) findViewById(R.id.btn_rv);
         btn_rv.setOnClickListener(new View.OnClickListener() {

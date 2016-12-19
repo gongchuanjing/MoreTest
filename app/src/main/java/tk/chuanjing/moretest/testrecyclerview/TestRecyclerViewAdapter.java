@@ -1,4 +1,4 @@
-package tk.chuanjing.moretest;
+package tk.chuanjing.moretest.testrecyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import tk.chuanjing.moretest.R;
 
 /**
  * Created by ChuanJing on 2016/12/15.
@@ -21,7 +23,7 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.item_recyclerview, null);
+        View view = View.inflate(parent.getContext(), R.layout.item_recyclerview_linearlayout_manager, null);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
