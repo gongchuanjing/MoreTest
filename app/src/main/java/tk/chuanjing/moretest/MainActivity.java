@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,8 +19,9 @@ import android.widget.Toast;
 
 import tk.chuanjing.moretest.testrecyclerview.RecyclerviewActivity;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +35,31 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .setAction("Action", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(MainActivity.this, "哈哈", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setCheckedItem(R.id.nav_camera);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.mipmap.icon_qian);
+        }
+
 
         initMyView();
     }
@@ -92,10 +107,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_share:
                 Toast.makeText(getApplicationContext(), "share", Toast.LENGTH_SHORT).show();
                 break;
+            case android.R.id.home:
+                drawer.openDrawer(GravityCompat.START);
+                break;
         }
-
-
-
 
         return super.onOptionsItemSelected(item);
     }
