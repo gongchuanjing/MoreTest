@@ -10,15 +10,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/iv_ic"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/iv_ic"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:textColor="#666"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:textColor="#666"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </Card>
