@@ -3,10 +3,8 @@ package tk.chuanjing.moretest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -45,21 +44,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setCheckedItem(R.id.nav_camera);
-        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setCheckedItem(R.id.nav_camera);默认选中菜单中的照相机
+        navigationView.setNavigationItemSelectedListener(this);//设置菜单选中监听
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.mipmap.icon_qian);
-        }
-
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setHomeAsUpIndicator(R.mipmap.icon_qian);
+//        }
 
         initMyView();
     }
@@ -107,9 +105,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.action_share:
                 Toast.makeText(getApplicationContext(), "share", Toast.LENGTH_SHORT).show();
                 break;
-            case android.R.id.home:
-                drawer.openDrawer(GravityCompat.START);
-                break;
+//            case android.R.id.home:菜单按钮
+//                drawer.openDrawer(GravityCompat.START);
+//                break;
         }
 
         return super.onOptionsItemSelected(item);
