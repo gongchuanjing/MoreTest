@@ -21,6 +21,7 @@
         <activity android:name=".testrecyclerview.RecyclerviewActivity" />
         <activity android:name=".testrecyclerview.RecyclerViewLinearLayoutManagerActivity" />
         <activity android:name=".testrecyclerview.RecyclerViewStaggeredGridLayoutManagerActivity"></activity>
+        <activity android:name=".testrecyclerview.RecyclerViewCardView"></activity>
     </application>
 
 </manifest>

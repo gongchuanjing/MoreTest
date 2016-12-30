@@ -18,4 +18,10 @@
         android:layout_height="wrap_content"
         android:text="瀑布流recyclerview"/>
 
+    <Button
+        android:id="@+id/btn_recyclerview_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="recyclerview 结合 CardView"/>
+
 </LinearLayout>

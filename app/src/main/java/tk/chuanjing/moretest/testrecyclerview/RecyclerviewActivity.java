@@ -3,6 +3,7 @@ package tk.chuanjing.moretest.testrecyclerview;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,6 +31,15 @@ public class RecyclerviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), RecyclerViewStaggeredGridLayoutManagerActivity.class));
+            }
+        });
+
+        // 点击进入CardView结合recyclerview
+        Button btn_recyclerview_cardView = (Button) findViewById(R.id.btn_recyclerview_cardView);
+        btn_recyclerview_cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), RecyclerViewCardView.class));
             }
         });
     }
