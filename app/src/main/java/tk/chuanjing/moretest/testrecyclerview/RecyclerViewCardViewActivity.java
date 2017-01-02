@@ -11,9 +11,6 @@ import java.util.List;
 
 import tk.chuanjing.moretest.R;
 
-import static tk.chuanjing.moretest.R.id.recyclerView;
-import static tk.chuanjing.moretest.R.id.refresh;
-
 public class RecyclerViewCardViewActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private List<TestBean> testList;
