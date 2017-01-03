@@ -28,11 +28,20 @@ public class TestRecyclerViewAndCardViewAdapter extends RecyclerView.Adapter<Tes
         final ViewHolder holder = new ViewHolder(view);
 
         // 设置整个view条目点击事件
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                TestBean testBean = testList.get(holder.getAdapterPosition());
+//                Toast.makeText(view.getContext(), "点击了" + testBean.name, Toast.LENGTH_SHORT).show();
+//            }
+//        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestBean testBean = testList.get(holder.getAdapterPosition());
-                Toast.makeText(view.getContext(), "点击了" + testBean.name, Toast.LENGTH_SHORT).show();
+                // 回调自己写的条目点击事件
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(view, holder.getAdapterPosition());
+                }
             }
         });
 
@@ -73,5 +82,14 @@ public class TestRecyclerViewAndCardViewAdapter extends RecyclerView.Adapter<Tes
             iv_ic = (ImageView)view.findViewById(R.id.iv_ic);
             tv_name = (TextView)view.findViewById(R.id.tv_name);
         }
+    }
+
+    // 自定义RecyclerView条目点击事件
+    private OnItemClickListener onItemClickListener;
+    public void setOnItemClickListener(OnItemClickListener listener){
+        onItemClickListener = listener;
+    }
+    public interface OnItemClickListener {
+        void onItemClick(View view, int postion);
     }
 }

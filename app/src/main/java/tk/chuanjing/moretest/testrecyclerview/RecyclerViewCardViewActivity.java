@@ -5,6 +5,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +40,16 @@ public class RecyclerViewCardViewActivity extends AppCompatActivity implements S
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new TestRecyclerViewAndCardViewAdapter(testList));
+        TestRecyclerViewAndCardViewAdapter adapter = new TestRecyclerViewAndCardViewAdapter(testList);
+        recyclerView.setAdapter(adapter);
+
+        // 使用自己写的条目点击事件
+        adapter.setOnItemClickListener(new TestRecyclerViewAndCardViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int postion) {
+                Toast.makeText(view.getContext(), "点击了整个" + testList.get(postion).name, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initDate() {
