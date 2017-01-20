@@ -16,7 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import tk.chuanjing.cjutils.toastutils.ToastUtils;
 import tk.chuanjing.moretest.testrecyclerview.RecyclerviewActivity;
+
+import static tk.chuanjing.moretest.R.id.btn_rv;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -64,13 +67,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initMyView() {
         // 点击进入recyclerview界面
-        Button btn_rv = (Button) findViewById(R.id.btn_rv);
-        btn_rv.setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(btn_rv)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), RecyclerviewActivity.class));
             }
         });
+
+        // 点击进入okhttp界面
+        ((Button) findViewById(R.id.btn_okhttp)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtils.showMyToast(getApplicationContext(), "okhttp");
+            }
+        });
+
     }
 
     @Override
