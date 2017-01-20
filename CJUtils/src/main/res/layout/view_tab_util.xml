@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView 
+        android:id="@+id/tv_menu"
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:paddingTop="10dp"
+	    android:drawableTop="@mipmap/ic_launcher"
+	    android:gravity="center"
+	    android:text="菜单"
+	    android:textSize="12sp"
+	    android:textColor="@color/my_white" />
+    <TextView 
+        android:id="@+id/tv_dot"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:gravity="center"
+        android:text="6"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:textColor="@android:color/white"
+        android:layout_alignTop="@id/tv_menu"
+		android:layout_alignRight="@id/tv_menu"
+		android:layout_marginRight="20dp"
+        android:background="@drawable/shape_dot"/>
+</RelativeLayout>
