@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="tk.chuanjing.moretest">
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        tools:replace="android:icon,android:label,android:theme,android:name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -20,8 +23,9 @@
         </activity>
         <activity android:name=".testrecyclerview.RecyclerviewActivity" />
         <activity android:name=".testrecyclerview.RecyclerViewLinearLayoutManagerActivity" />
-        <activity android:name=".testrecyclerview.RecyclerViewStaggeredGridLayoutManagerActivity"></activity>
-        <activity android:name=".testrecyclerview.RecyclerViewCardViewActivity"></activity>
+        <activity android:name=".testrecyclerview.RecyclerViewStaggeredGridLayoutManagerActivity" />
+        <activity android:name=".testrecyclerview.RecyclerViewCardViewActivity" />
+        <activity android:name=".testokhttp.OkhttpActivity"></activity>
     </application>
 
 </manifest>
