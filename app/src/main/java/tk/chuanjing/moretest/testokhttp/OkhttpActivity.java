@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.EditText;
 
 import tk.chuanjing.moretest.R;
@@ -15,6 +16,7 @@ public class OkhttpActivity extends AppCompatActivity {
     private TextInputLayout til_username;
     private EditText et_pwd;
     private TextInputLayout til_pwd;
+    private Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class OkhttpActivity extends AppCompatActivity {
         this.et_pwd = (EditText) findViewById(R.id.et_pwd);
         this.til_username = (TextInputLayout) findViewById(R.id.til_username);
         this.et_username = (EditText) findViewById(R.id.et_username);
+        this.btn_login = (Button) findViewById(R.id.btn_login);
 
         til_pwd.setCounterEnabled(true);
         et_username.addTextChangedListener(new TextWatcher() {
@@ -49,5 +52,8 @@ public class OkhttpActivity extends AppCompatActivity {
 
             }
         });
+
+        // 按钮
+//        btn_login.setOnClickListener();
     }
 }

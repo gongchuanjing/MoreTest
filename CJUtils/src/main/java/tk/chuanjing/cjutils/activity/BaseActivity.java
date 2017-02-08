@@ -2,9 +2,10 @@ package tk.chuanjing.cjutils.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+
 import tk.chuanjing.cjutils.R;
 import tk.chuanjing.cjutils.systembartint.StatusBarUtils;
 
@@ -12,7 +13,7 @@ import tk.chuanjing.cjutils.systembartint.StatusBarUtils;
  * Activity的基类
  * @author ChuanJing
  */
-public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements OnClickListener {
 	
 	@SuppressLint("ResourceAsColor")
 	@Override
