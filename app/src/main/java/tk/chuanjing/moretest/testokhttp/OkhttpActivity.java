@@ -1,6 +1,5 @@
 package tk.chuanjing.moretest.testokhttp;
 
-import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -10,9 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import okhttp3.Call;
 import tk.chuanjing.cjutils.activity.BaseActivity;
 import tk.chuanjing.cjutils.net.OkHttpUtils;
+import tk.chuanjing.cjutils.net.callback.StringCallback;
 import tk.chuanjing.cjutils.smallutils.APPUtils;
+import tk.chuanjing.cjutils.toastutils.ToastUtils;
 import tk.chuanjing.moretest.Constant;
 import tk.chuanjing.moretest.MyApp;
 import tk.chuanjing.moretest.R;
@@ -91,20 +93,34 @@ public class OkhttpActivity extends BaseActivity {
         doLogin(username, pwd);
     }
 
+    /** Post加头 加参数 */
     private void doLogin(String username, String pwd) {
         String android_id = APPUtils.getDeviceId(MyApp.getInstance());// 获取deviceId
         OkHttpUtils.post()
                 .url(Constant.DO_LOGIN)
+
                 .addHeader("live-license", "")
                 .addHeader("live-username", username)
                 .addHeader("live-version", "1.0")
                 .addHeader("live-patch", "9")
+
                 .addParams("user", username)
-                .addParams("pass", pass)
-                .addParams("uid", uid)
-                .addParams("ver", ver)
+                .addParams("pass", pwd)
+                .addParams("uid", android_id)
+                .addParams("ver", "9")
                 .addParams("app", "2")// 2代表 Android iTask
+
                 .build()
-                .execute();
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response);
+                    }
+                });
     }
 }
