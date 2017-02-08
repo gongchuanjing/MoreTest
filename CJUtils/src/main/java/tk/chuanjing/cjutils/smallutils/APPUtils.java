@@ -72,7 +72,7 @@ public class APPUtils {
 	/**
 	 * 获取设备id
 	 */
-	public String getDeviceId(Context mContext) {
+	public static String getDeviceId(Context mContext) {
 		return Secure.getString(mContext.getContentResolver(), Secure.ANDROID_ID);
 	}
 	
