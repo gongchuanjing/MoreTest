@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
+    android:id="@+id/activity_test_recovery"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="tk.chuanjing.moretest.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context="tk.chuanjing.moretest.testrecovery.TestRecoveryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_rv"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_make_crash"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="recyclerview"/>
+            android:onClick="onClick"
+            android:text="Make Crash"/>
 
         <Button
-            android:id="@+id/btn_okhttp"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_to_testRecoveryActivity2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="okHttpUtils"/>
-
-        <Button
-            android:id="@+id/btn_test_recovery"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="TestRecovery"/>
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:onClick="onClick"
+            android:text="跳转TestRecoveryActivity2"/>
 
     </LinearLayout>
+
 </RelativeLayout>

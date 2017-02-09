@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import tk.chuanjing.moretest.testokhttp.OkhttpActivity;
+import tk.chuanjing.moretest.testrecovery.TestRecoveryActivity;
 import tk.chuanjing.moretest.testrecyclerview.RecyclerviewActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_app);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -77,6 +78,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), OkhttpActivity.class));
+            }
+        });
+
+        // 点击进入TestRecovery界面
+        ((Button) findViewById(R.id.btn_test_recovery)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), TestRecoveryActivity.class));
             }
         });
 

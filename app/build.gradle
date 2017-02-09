@@ -31,4 +31,5 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //glide用法
     compile project(':CJUtils')
+//    compile 'com.zxy.android:recovery:0.1.2'//Recovery一加上就挂，可能是里面编译版本的问题
 }

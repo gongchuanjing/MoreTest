@@ -4,15 +4,16 @@
     package="tk.chuanjing.moretest">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        tools:replace="android:icon,android:label,android:theme,android:name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:label,android:theme,android:name">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -27,7 +28,8 @@
         <activity android:name=".testrecyclerview.RecyclerViewLinearLayoutManagerActivity" />
         <activity android:name=".testrecyclerview.RecyclerViewStaggeredGridLayoutManagerActivity" />
         <activity android:name=".testrecyclerview.RecyclerViewCardViewActivity" />
-        <activity android:name=".testokhttp.OkhttpActivity"></activity>
+        <activity android:name=".testokhttp.OkhttpActivity" />
+        <activity android:name=".testrecovery.TestRecoveryActivity"></activity>
     </application>
 
 </manifest>
