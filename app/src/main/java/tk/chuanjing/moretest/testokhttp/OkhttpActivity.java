@@ -147,6 +147,7 @@ public class OkhttpActivity extends BaseActivity {
                         ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
                     }
 
+                    //UI线程
                     @Override
                     public void onResponse(SCInfo response, int id) {
                         ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response.toString());
