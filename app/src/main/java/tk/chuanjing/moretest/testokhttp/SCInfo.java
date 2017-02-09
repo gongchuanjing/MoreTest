@@ -268,11 +268,28 @@ public class SCInfo {
 
 	@Override
 	public String toString() {
-		return "SCInfo [DealerName_EN=" + DealerName_EN + ", SCRole=" + SCRole + ", info=" + info + ", dealerCode="
-				+ dealerCode + ", dealerName=" + dealerName + ", decodePhoneNum=" + decodePhoneNum + ", recommendMonth="
-				+ recommendMonth + ", maxReserveDay=" + maxReserveDay + ", todayTaskNum=" + todayTaskNum
-				+ ", scisReception=" + scisReception + ", scname=" + scname + ", sccode=" + sccode + ", scphone="
-				+ scphone + ", scinGroup=" + scinGroup + ", sclevel=" + sclevel + ", itaskVersion=" + itaskVersion
-				+ ", scbrand=" + scbrand + "]";
+		return "SCInfo{" +
+				"FirstLogin='" + FirstLogin + '\'' +
+				", ForceUpdate='" + ForceUpdate + '\'' +
+				", UpCode='" + UpCode + '\'' +
+				", UpRole='" + UpRole + '\'' +
+				", DealerName_EN='" + DealerName_EN + '\'' +
+				", SCRole='" + SCRole + '\'' +
+				", info='" + info + '\'' +
+				", dealerCode='" + dealerCode + '\'' +
+				", dealerName='" + dealerName + '\'' +
+				", decodePhoneNum='" + decodePhoneNum + '\'' +
+				", recommendMonth='" + recommendMonth + '\'' +
+				", maxReserveDay=" + maxReserveDay +
+				", todayTaskNum='" + todayTaskNum + '\'' +
+				", scisReception='" + scisReception + '\'' +
+				", scname='" + scname + '\'' +
+				", sccode='" + sccode + '\'' +
+				", scphone='" + scphone + '\'' +
+				", scinGroup='" + scinGroup + '\'' +
+				", sclevel='" + sclevel + '\'' +
+				", itaskVersion='" + itaskVersion + '\'' +
+				", scbrand='" + scbrand + '\'' +
+				'}';
 	}
 }

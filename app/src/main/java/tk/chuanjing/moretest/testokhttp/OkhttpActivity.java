@@ -12,6 +12,7 @@ import android.widget.Toast;
 import okhttp3.Call;
 import tk.chuanjing.cjutils.activity.BaseActivity;
 import tk.chuanjing.cjutils.net.OkHttpUtils;
+import tk.chuanjing.cjutils.net.callback.GenericsCallback;
 import tk.chuanjing.cjutils.net.callback.StringCallback;
 import tk.chuanjing.cjutils.smallutils.APPUtils;
 import tk.chuanjing.cjutils.toastutils.ToastUtils;
@@ -111,15 +112,44 @@ public class OkhttpActivity extends BaseActivity {
                 .addParams("app", "2")// 2代表 Android iTask
 
                 .build()
-                .execute(new StringCallback() {
+
+                /** 直接解析为String */
+//                .execute(new StringCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onResponse(String response, int id) {
+//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response);
+//                    }
+//                });
+
+                /** 解析为UserCallback */
+//                .execute(new UserCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onResponse(SCInfo response, int id) {
+//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response.toString());
+//                    }
+//                });
+
+                /** 使用泛型解析，不用每个都写一个Callback */
+                .execute(new GenericsCallback<SCInfo>(new GenericsSerializatorToGson()) {
+
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
                     }
 
                     @Override
-                    public void onResponse(String response, int id) {
-                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response);
+                    public void onResponse(SCInfo response, int id) {
+                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response.toString());
                     }
                 });
     }
