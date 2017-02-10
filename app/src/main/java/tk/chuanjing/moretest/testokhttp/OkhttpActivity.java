@@ -1,5 +1,7 @@
 package tk.chuanjing.moretest.testokhttp;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -7,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import okhttp3.Call;
@@ -27,6 +30,21 @@ public class OkhttpActivity extends BaseActivity {
     private EditText et_pwd;
     private TextInputLayout til_pwd;
     private Button btn_login;
+    private TextView tv_content;
+
+    private final int SUC_CODE = 1001;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case SUC_CODE:
+                    SCInfo sCInfo = (SCInfo) msg.obj;
+                    tv_content.setText("请求成功--" + sCInfo.toString());
+                    break;
+            }
+        }
+    };
 
     @Override
     public int getLayoutResID() {
@@ -40,6 +58,7 @@ public class OkhttpActivity extends BaseActivity {
         this.til_username = (TextInputLayout) findViewById(R.id.til_username);
         this.et_username = (EditText) findViewById(R.id.et_username);
         this.btn_login = (Button) findViewById(R.id.btn_login);
+        this.tv_content = (TextView) findViewById(R.id.tv_content);
     }
 
     @Override
@@ -97,61 +116,9 @@ public class OkhttpActivity extends BaseActivity {
     /** Post加头 加参数 */
     private void doLogin(String username, String pwd) {
         String android_id = APPUtils.getDeviceId(MyApp.getInstance());// 获取deviceId
-        OkHttpUtils.post()
-                .url(Constant.DO_LOGIN)
-
-                .addHeader("live-license", "")
-                .addHeader("live-username", username)
-                .addHeader("live-version", "1.0")
-                .addHeader("live-patch", "9")
-
-                .addParams("user", username)
-                .addParams("pass", pwd)
-                .addParams("uid", android_id)
-                .addParams("ver", "9")
-                .addParams("app", "2")// 2代表 Android iTask
-
-                .build()
-
-                /** 直接解析为String */
-//                .execute(new StringCallback() {
-//                    @Override
-//                    public void onError(Call call, Exception e, int id) {
-//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onResponse(String response, int id) {
-//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response);
-//                    }
-//                });
-
-                /** 解析为UserCallback */
-//                .execute(new UserCallback() {
-//                    @Override
-//                    public void onError(Call call, Exception e, int id) {
-//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onResponse(SCInfo response, int id) {
-//                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response.toString());
-//                    }
-//                });
-
-                /** 使用泛型解析，不用每个都写一个Callback */
-                .execute(new GenericsCallback<SCInfo>(new GenericsSerializatorToGson()) {
-
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        ToastUtils.showMyToast(MyApp.getInstance(), "请求失败--" + id + e.getMessage());
-                    }
-
-                    //UI线程
-                    @Override
-                    public void onResponse(SCInfo response, int id) {
-                        ToastUtils.showMyToast(MyApp.getInstance(), "请求成功--" + response.toString());
-                    }
-                });
+//        MyApp.requestService.doLoginToString(username, pwd, android_id);
+//        MyApp.requestService.doLoginToUser(username, pwd, android_id, handler, SUC_CODE);
+//        MyApp.requestService.doLoginToUserForGenericsCallback(username, pwd, android_id, handler, SUC_CODE);
+        MyApp.requestService.doLoginToUserForMyGenericsCallback(username, pwd, android_id, handler, SUC_CODE);
     }
 }

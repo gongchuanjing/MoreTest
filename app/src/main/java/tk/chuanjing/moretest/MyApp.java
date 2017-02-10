@@ -1,6 +1,7 @@
 package tk.chuanjing.moretest;
 
 import tk.chuanjing.cjutils.MyApplication;
+import tk.chuanjing.moretest.testokhttp.RequestServiceMethodList;
 
 /**
  * Created by ChuanJing on 2017/2/6.
@@ -8,9 +9,16 @@ import tk.chuanjing.cjutils.MyApplication;
 
 public class MyApp extends MyApplication {
 
+    /** 所有请求网络的方法都在这个类里面 */
+    public static RequestServiceMethodList requestService;
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        if (requestService == null) {
+            requestService = new RequestServiceMethodList();
+        }
 
         // initRecovery();
     }
