@@ -2,6 +2,8 @@ package tk.chuanjing.moretest;
 
 import android.os.Environment;
 
+import static android.os.Build.VERSION_CODES.N;
+
 /**
  * 常量类
  */
@@ -12,7 +14,7 @@ public class Constant {
  	 public static final String PATHKPI = "http://120.26.10.29:8081/LiVEService/";// KPI
 
 	/** 新版本下载地址 */
-	public static  String NET_APK = "http://120.26.66.145:7522/LSHTestUpdate/LshITaskSE.apk";
+	public static  String NET_APK = "http://chuanjing.bitbucket.org/kuaididaole/kuaididaole.apk";
 
 	/** 登录 */
 	public static final String DO_LOGIN = PATH + "ITaskLogin";

@@ -12,13 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import okhttp3.Call;
 import tk.chuanjing.cjutils.activity.BaseActivity;
-import tk.chuanjing.cjutils.net.OkHttpUtils;
-import tk.chuanjing.cjutils.net.callback.GenericsCallback;
-import tk.chuanjing.cjutils.net.callback.StringCallback;
 import tk.chuanjing.cjutils.smallutils.APPUtils;
-import tk.chuanjing.cjutils.toastutils.ToastUtils;
 import tk.chuanjing.moretest.Constant;
 import tk.chuanjing.moretest.MyApp;
 import tk.chuanjing.moretest.R;
@@ -31,6 +26,7 @@ public class OkhttpActivity extends BaseActivity {
     private TextInputLayout til_pwd;
     private Button btn_login;
     private TextView tv_content;
+    private Button btn_download;
 
     private final int SUC_CODE = 1001;
     private Handler handler = new Handler() {
@@ -59,6 +55,7 @@ public class OkhttpActivity extends BaseActivity {
         this.et_username = (EditText) findViewById(R.id.et_username);
         this.btn_login = (Button) findViewById(R.id.btn_login);
         this.tv_content = (TextView) findViewById(R.id.tv_content);
+        this.btn_download = (Button) findViewById(R.id.btn_download);
     }
 
     @Override
@@ -84,6 +81,7 @@ public class OkhttpActivity extends BaseActivity {
 
         // 按钮
         btn_login.setOnClickListener(this);
+        btn_download.setOnClickListener(this);
     }
 
     @Override
@@ -95,6 +93,10 @@ public class OkhttpActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.btn_login:
                 submit();
+			    break;
+
+            case R.id.btn_download:
+                downloadAPK();
 			    break;
         }
     }
@@ -120,5 +122,9 @@ public class OkhttpActivity extends BaseActivity {
 //        MyApp.requestService.doLoginToUser(username, pwd, android_id, handler, SUC_CODE);
 //        MyApp.requestService.doLoginToUserForGenericsCallback(username, pwd, android_id, handler, SUC_CODE);
         MyApp.requestService.doLoginToUserForMyGenericsCallback(username, pwd, android_id, handler, SUC_CODE);
+    }
+
+    private void downloadAPK() {
+        MyApp.requestService.downloadAPK(Constant.DOWNLOAD_FILE_PATH, "newAPK.apk", this);
     }
 }

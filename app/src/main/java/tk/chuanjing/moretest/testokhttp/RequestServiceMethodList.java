@@ -1,10 +1,18 @@
 package tk.chuanjing.moretest.testokhttp;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 
+import java.io.File;
+
 import okhttp3.Call;
+import okhttp3.Request;
 import tk.chuanjing.cjutils.net.OkHttpUtils;
+import tk.chuanjing.cjutils.net.callback.FileCallBack;
 import tk.chuanjing.cjutils.net.callback.GenericsCallback;
 import tk.chuanjing.cjutils.net.callback.StringCallback;
 import tk.chuanjing.cjutils.toastutils.ToastUtils;
@@ -124,5 +132,49 @@ public class RequestServiceMethodList {
                 .addParams("app", "2")// 2代表 Android iTask
                 .build()
                 .execute(new GenericsCallbackToBean<SCInfo>(handler, sucCode){});
+    }
+
+    public void downloadAPK(String destFileDir, String destFileName, final Activity mActivity) {
+        final ProgressDialog progressDown = new ProgressDialog(mActivity);//APP级别的Context不行
+        progressDown.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDown.setTitle("正在下载……");
+        OkHttpUtils.get()
+                .url(Constant.NET_APK)
+                .build()
+                .execute(new FileCallBack(destFileDir, destFileName) {
+                    @Override
+                    public void onBefore(Request request, int id) {
+                        super.onBefore(request, id);
+                        progressDown.show();
+                    }
+
+                    @Override
+                    public void onAfter(int id) {
+                        super.onAfter(id);
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        progressDown.dismiss();
+                        ToastUtils.showMyToast(MyApp.getInstance(), "onError-->" + id + "\r\n" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(File response, int id) {
+                        progressDown.dismiss();
+
+                        // 安装下载的apk
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        Uri fileUri = Uri.fromFile(response);
+                        intent.setDataAndType(fileUri, "application/vnd.android.package-archive");
+                        mActivity.startActivity(intent);
+                    }
+
+                    @Override
+                    public void inProgress(float progress, long total, int id) {
+                        progressDown.setProgress((int) (100 * progress));
+                    }
+                });
     }
 }
