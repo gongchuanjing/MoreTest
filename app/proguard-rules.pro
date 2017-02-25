@@ -15,3 +15,21 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#-printmapping proguard.map
+#-applymapping mapping.txt
+
+-keepattributes Signature	# 使用gson时一定要记得这个
+
+-ignorewarnings	# 忽略警告
+
+#gson
+#-libraryjars /libs/gson-2.2.1.jar
+-dontwarn com.google.gson.**
+-keep class com.google.gson.** { *;}
+
+#--------- AndFix热修复
+-keep class * extends java.lang.annotation.Annotation
+-keepclasseswithmembernames class * {
+    native <methods>;
+}

@@ -7,16 +7,30 @@ android {
     defaultConfig {
 //        applicationId "tk.chuanjing.cjutils"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled false     // true 开启混淆
+            shrinkResources true    // 去除无用资源
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false        // true 开启混淆
+            shrinkResources true    // 去除无用资源
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 防止打正式包时报错
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
 }
 

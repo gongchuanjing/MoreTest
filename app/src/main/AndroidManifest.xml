@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name=".MyApp"
@@ -31,6 +33,7 @@
         <activity android:name=".testrecyclerview.RecyclerViewStaggeredGridLayoutManagerActivity" />
         <activity android:name=".testrecyclerview.RecyclerViewCardViewActivity" />
         <activity android:name=".testokhttp.OkhttpActivity" />
+        <activity android:name=".testandfix.AndFixActivity" />
         <activity android:name=".testrecovery.TestRecoveryActivity"></activity>
     </application>
 

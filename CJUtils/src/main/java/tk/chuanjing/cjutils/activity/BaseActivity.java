@@ -23,7 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnClickL
 		setContentView(getLayoutResID());
 		
 		// 设置状态栏为蓝色
-		StatusBarUtils.setStatusBarColor(this, R.color.title_background);
+//		StatusBarUtils.setStatusBarColor(this, R.color.title_background);
 		// 设置状态栏白色字体图标，适配4.4以上版本MIUIV、Flyme和6.0以上版本其他Android
 //		StatusBarUtils.StatusBarDarkMode(this);
 		

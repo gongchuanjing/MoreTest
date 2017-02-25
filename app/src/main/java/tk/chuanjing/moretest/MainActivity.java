@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import tk.chuanjing.moretest.testandfix.AndFixActivity;
 import tk.chuanjing.moretest.testokhttp.OkhttpActivity;
 import tk.chuanjing.moretest.testrecovery.TestRecoveryActivity;
 import tk.chuanjing.moretest.testrecyclerview.RecyclerviewActivity;
@@ -86,6 +87,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), TestRecoveryActivity.class));
+            }
+        });
+
+        // 点击进入AndFix界面
+        ((Button) findViewById(R.id.btn_andfix)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AndFixActivity.class));
             }
         });
 

@@ -38,5 +38,12 @@
             android:layout_marginTop="10dp"
             android:text="TestRecovery"/>
 
+        <Button
+            android:id="@+id/btn_andfix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="热修复AndFix"/>
+
     </LinearLayout>
 </RelativeLayout>
