@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import tk.chuanjing.cjutils.smallutils.APPUtils;
 import tk.chuanjing.cjutils.toastutils.ToastUtils;
 import tk.chuanjing.moretest.Constant;
 import tk.chuanjing.moretest.MyApp;
@@ -32,7 +33,8 @@ public class AndFixActivity extends AppCompatActivity implements View.OnClickLis
         this.tv_bug = (TextView) findViewById(R.id.tv_bug);
         this.btn_download = (Button) findViewById(R.id.btn_download);
         this.btn_hotfix = (Button) findViewById(R.id.btn_hotfix);
-        tv_bug.setText("修复好了");
+//        tv_bug.setText("1 + 1 = 3，什么？低级bug");
+        tv_bug.setText("修复后：1 + 1 = 2");
     }
 
     public void initListener() {
@@ -54,7 +56,8 @@ public class AndFixActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
             case R.id.tv_bug:
-                ToastUtils.showMyToast(MyApp.getInstance(), "修复……搞定了");
+//                ToastUtils.showMyToast(MyApp.getInstance(), "修复前我是一个bug");
+                ToastUtils.showMyToast(MyApp.getInstance(), "已经使用AndFix修复了bug");
                 break;
         }
     }
@@ -67,13 +70,14 @@ public class AndFixActivity extends AppCompatActivity implements View.OnClickLis
 
     /** 修复 */
     private void update() {
-        String patchFileStr = Constant.APATCH_PATH + "/fix5.apatch";
+        String patchFileStr = Constant.APATCH_PATH + "/fix8.apatch";
         try {
+            APPUtils.logCj(patchFileStr);
             MyApp.mPatchManager.addPatch(patchFileStr);
             ToastUtils.showMyToast(MyApp.getInstance(), "修复完成！");
         } catch (IOException e) {
             e.printStackTrace();
-            ToastUtils.showMyToast(MyApp.getInstance(), "修复失败…………！");
+            ToastUtils.showMyToast(MyApp.getInstance(), "修复失败…………");
         }
     }
 }

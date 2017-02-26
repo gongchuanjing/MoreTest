@@ -16,8 +16,8 @@
 #   public *;
 #}
 
-#-printmapping proguard.map
-#-applymapping mapping.txt
+#-printmapping mapping.txt
+-applymapping mapping.txt
 
 -keepattributes Signature	# 使用gson时一定要记得这个
 
@@ -33,3 +33,4 @@
 -keepclasseswithmembernames class * {
     native <methods>;
 }
+-keep class com.alipay.euler.andfix.** { *; }

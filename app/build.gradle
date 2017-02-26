@@ -44,7 +44,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //glide用法
     compile project(':CJUtils')
-    //    compile 'com.zxy.android:recovery:0.1.2'//Recovery一加上就挂，可能是里面编译版本的问题
+    //compile 'com.zxy.android:recovery:0.1.2'//Recovery一加上就挂，可能是里面编译版本的问题
     compile files('libs/gson-2.2.4.jar')
-    compile 'com.alipay.euler:andfix:0.5.0@aar'//阿里AndFix
+    //compile 'com.alipay.euler:andfix:0.5.0@aar'//阿里AndFix，这个版本老是不成功
+    compile 'com.alipay.euler:andfix:0.3.1@aar'//阿里AndFix，这个版本成功率高
 }
