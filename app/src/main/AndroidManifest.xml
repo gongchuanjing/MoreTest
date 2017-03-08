@@ -35,6 +35,7 @@
         <activity android:name=".testokhttp.OkhttpActivity" />
         <activity android:name=".testandfix.AndFixActivity" />
         <activity android:name=".testrecovery.TestRecoveryActivity"></activity>
+        <activity android:name="tk.chuanjing.moretest.testlistview.ToListViewActivity"></activity>
     </application>
 
 </manifest>
