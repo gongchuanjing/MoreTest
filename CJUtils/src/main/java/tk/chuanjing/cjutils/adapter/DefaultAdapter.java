@@ -50,5 +50,6 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 		return vh.getConvertView();
 	}
 
+	/** 返回BaseHolder的子类 */
 	protected abstract BaseHolder<T> getHolder();
 }
