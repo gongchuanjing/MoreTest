@@ -16,13 +16,15 @@ android {
     buildTypes {
         release {
             minifyEnabled false     // true 开启混淆
-            shrinkResources true    // 去除无用资源
+            //shrinkResources true    // 去除无用资源
+            shrinkResources false    // 去除无用资源
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         debug {
             minifyEnabled false        // true 开启混淆
-            shrinkResources true    // 去除无用资源
+            //shrinkResources true    // 去除无用资源
+            shrinkResources false    // 去除无用资源
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
