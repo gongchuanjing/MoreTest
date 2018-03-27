@@ -71,7 +71,7 @@ public class RecyclerViewCardViewActivity extends AppCompatActivity implements S
         // 加载数据完成，隐藏刷新头
         // refresh.setRefreshing(false);
 
-        // 这里延迟三秒隐藏刷新头，模拟加载数据
+        // 这里延迟5秒隐藏刷新头，模拟加载数据
         refresh.postDelayed(new Runnable() {
             @Override
             public void run() {

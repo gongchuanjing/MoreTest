@@ -56,15 +56,10 @@ public class TestRecyclerViewAndCardViewAdapter extends RecyclerView.Adapter<Tes
             tv_name.setText(testBean.name);
 
             // 设置整个view条目点击事件
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(view.getContext(), "点击了" + testBean.name, Toast.LENGTH_SHORT).show();
-//                }
-//            });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //Toast.makeText(view.getContext(), "点击了" + testBean.name, Toast.LENGTH_SHORT).show();
                     // 回调自己写的条目点击事件
                     if (onItemClickListener != null) {
                         onItemClickListener.onItemClick(view, position);
