@@ -1,6 +1,7 @@
 package tk.chuanjing.moretest.testrecyclerview;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,7 +25,8 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<TestRecyclerVi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.item_recyclerview_linearlayout_manager, null);
+        //View view = View.inflate(parent.getContext(), R.layout.item_recyclerview_linearlayout_manager, null);
+		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recyclerview_linearlayout_manager, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
         // 设置整个view条目点击事件
