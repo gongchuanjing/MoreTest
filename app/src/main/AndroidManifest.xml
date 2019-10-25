@@ -10,8 +10,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
+    <!-- 读联系人权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- 写联系人权限 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+
     <application
-        android:name="tk.chuanjing.moretest.MyApp"
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -34,8 +39,9 @@
         <activity android:name=".testrecyclerview.RecyclerViewCardViewActivity" />
         <activity android:name=".testokhttp.OkhttpActivity" />
         <activity android:name=".testandfix.AndFixActivity" />
-        <activity android:name=".testrecovery.TestRecoveryActivity"></activity>
-        <activity android:name="tk.chuanjing.moretest.testlistview.ToListViewActivity"></activity>
+        <activity android:name=".testrecovery.TestRecoveryActivity" />
+        <activity android:name=".testlistview.ToListViewActivity" />
+        <activity android:name="tk.chuanjing.import_contacts.ImportContactsActivity"></activity>
     </application>
 
 </manifest>

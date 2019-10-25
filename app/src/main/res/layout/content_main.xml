@@ -47,10 +47,17 @@
 
         <Button
             android:id="@+id/btn_to_listview"
-            android:text="测试  ListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:text="测试  ListView"/>
+
+        <Button
+            android:id="@+id/btn_import_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="一键导入EXCEL联系人"/>
 
     </LinearLayout>
 </RelativeLayout>

@@ -40,4 +40,7 @@ public class Constant {
 
 	/** 从服务器上下载的AndFix补丁包所在的文件夹 */
 	public static final String APATCH_PATH = ROOT_FILE_PATH + "/apatch";
+
+	/** 存放其他文件 */
+	public static final String OTHER_PATH = ROOT_FILE_PATH + "/other";
 }

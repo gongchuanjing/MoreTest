@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_import_contacts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="tk.chuanjing.import_contacts.ImportContactsActivity">
+
+    <Button
+        android:id="@+id/btn_import"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="导入EXCEL联系人(请准备好excel表格)"/>
+
+    <Button
+        android:id="@+id/btn_del_all_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="删除所有联系人"/>
+
+</LinearLayout>

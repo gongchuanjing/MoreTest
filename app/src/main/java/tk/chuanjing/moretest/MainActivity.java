@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import tk.chuanjing.import_contacts.ImportContactsActivity;
 import tk.chuanjing.moretest.testandfix.AndFixActivity;
 import tk.chuanjing.moretest.testlistview.ToListViewActivity;
 import tk.chuanjing.moretest.testokhttp.OkhttpActivity;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "小舟从此逝，江海寄余生", Snackbar.LENGTH_LONG)
                         .setAction("Action", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -107,6 +108,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        // 点击进入【导入联系人】的界面
+        ((Button) findViewById(R.id.btn_import_contacts)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ImportContactsActivity.class));
+            }
+        });
     }
 
     @Override
@@ -156,17 +164,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Toast.makeText(MainActivity.this, "锦瑟无端五十弦，一弦一柱思华年", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_gallery) {
-
+            Toast.makeText(MainActivity.this, "庄生晓梦迷蝴蝶，望帝春心托杜鹃", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_slideshow) {
-
+            Toast.makeText(MainActivity.this, "沧海月明珠有泪，蓝田日暖玉生烟", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_manage) {
-
+            Toast.makeText(MainActivity.this, "此情可待成追忆？只是当时已惘然", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(MainActivity.this, "世间万物，希望至美", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(MainActivity.this, "晓看天色暮看云,行也思君,坐也思君", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
